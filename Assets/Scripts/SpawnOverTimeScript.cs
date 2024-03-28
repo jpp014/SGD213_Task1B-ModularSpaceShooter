@@ -15,7 +15,7 @@ public class SpawnOverTimeScript : MonoBehaviour
     private Renderer ourRenderer;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
 
         ourRenderer = GetComponent<Renderer>();
@@ -28,13 +28,13 @@ public class SpawnOverTimeScript : MonoBehaviour
         InvokeRepeating("Spawn", spawnDelay, spawnDelay);
     }
 
-    void Spawn()
+    private void Spawn()
     {
-        float x1 = transform.position.x - ourRenderer.bounds.size.x / 2;
-        float x2 = transform.position.x + ourRenderer.bounds.size.x / 2;
+        var  x1 = transform.position.x - ourRenderer.bounds.size.x / 2;
+        var x2 = transform.position.x + ourRenderer.bounds.size.x / 2;
 
         // Randomly pick a point within the spawn object
-        Vector2 spawnPoint = new Vector2(Random.Range(x1, x2), transform.position.y);
+        var spawnPoint = new Vector2(Random.Range(x1, x2), transform.position.y);
 
         // Spawn the object at the 'spawnPoint' position
         Instantiate(spawnObject, spawnPoint, Quaternion.identity);
