@@ -29,8 +29,6 @@ public class MoveForwardConstantly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
         var forceToAdd =new Vector2(0f, (float)directions) * (acceleration * Time.deltaTime);
         
         ourRigidbody.AddForce(forceToAdd);
