@@ -1,9 +1,10 @@
-﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class ShootingScript : MonoBehaviour
+public class ShootingComponent : MonoBehaviour
 {
-
+  
     [SerializeField]
     private GameObject bullet;
 
@@ -18,14 +19,12 @@ public class ShootingScript : MonoBehaviour
     {
         // Do some math to perfectly spawn bullets in front of us
         bulletOffset = GetComponent<Renderer>().bounds.size.y / 2 // Half of our size
-            + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
+                       + bullet.GetComponent<Renderer>().bounds.size.y / 2; // Plus half of the bullet size
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButton("Fire1"))
-        {
+   public void shoot(){
+       
             float CurrentTime = Time.time;
 
             // Have a delay so we don't shoot too many bullets
@@ -38,18 +37,7 @@ public class ShootingScript : MonoBehaviour
                 lastFiredTime = CurrentTime;
             }
 
-            //print("Shoot!");
-        }
+            
+        
     }
-
-    /// <summary>
-    /// SampleMethod is a sample of how to use abstraction by
-    /// specification. It converts a provided integer to a float.
-    /// </summary>
-    /// <param name="number">any integer</param>
-    /// <returns>the number parameter as a float</returns>
-    public float SampleMethod(int number) {
-        return number;
-    }
-
 }
