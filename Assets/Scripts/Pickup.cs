@@ -18,6 +18,7 @@ public class Pickup : MonoBehaviour
         {
             GameObject player = col.gameObject;
             HandlePlayerPickup(player);
+            Destroy(gameObject);
         }
     }
 
@@ -27,6 +28,7 @@ public class Pickup : MonoBehaviour
         {
             GameObject player = col.gameObject;
             HandlePlayerPickup(player);
+            Destroy(gameObject);
         }
     }
 
@@ -36,7 +38,7 @@ public class Pickup : MonoBehaviour
     /// new IWeapon (based on the provided weaponType).
     /// </summary>
     /// <param name="player"></param>
-    private void HandlePlayerPickup(GameObject player)
+    public void HandlePlayerPickup(GameObject player)
     {
         // get the playerInput from the player
         PlayerInput playerInput = player.GetComponent<PlayerInput>();

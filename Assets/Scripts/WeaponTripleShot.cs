@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,20 @@ public class WeaponTripleShot : WeaponBase
     /// Shoot will spawn a three bullets, provided enough time has passed compared to our fireDelay.
     /// </summary>
 
-    public float verticalDirection = -1f;
+    public float verticalDirection;
+
+    public void Start()
+    {
+        if (gameObject.tag == "Player")
+        {
+            verticalDirection = 1f;
+        }
+        else if (gameObject.tag == "Enemy")
+        {
+            verticalDirection = -1f;
+        }
+    }
+
     public override void Shoot() {
         // get the current time
         float currentTime = Time.time;

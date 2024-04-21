@@ -75,7 +75,6 @@ public class PlayerInput : MonoBehaviour
                 break;
             case WeaponType.tripleShot:
                 newWeapon = gameObject.AddComponent<WeaponTripleShot>();
-                GetComponent<WeaponTripleShot>().verticalDirection = 1;
                 break;
         }
 
