@@ -37,8 +37,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
-
-        UIManager.instance.UpdatePlayerHealthSlider((float)currentHealth / (float)maxHealth);
+        
 
         if (currentHealth <= 0)
         {
